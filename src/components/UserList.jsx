@@ -23,7 +23,7 @@ export const UserList = () => {
           </li>
         ))}
       </ul>
-
+      <p>{activeTasks.length} tasks</p>
       <button onClick={completeTasks}>Complete</button>
       <button onClick={deleteTasks}>Delete</button>
       <button onClick={clearActive}>Clear all</button>

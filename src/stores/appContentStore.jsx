@@ -24,6 +24,12 @@ export const appContentStore = create((set) => ({
       task.selected ? { ...task, completed: true, selected: false } : task
     ),
   })),
+  //uncomplete a task
+  uncompleteTasks: () => set((state) => ({
+    list: state.list.map((task) =>
+      task.selected ? { ...task, completed: false, selected: false } : task
+    ),
+  })),
   // Delete all selected tasks
   deleteTasks: () => set((state) => ({
     list: state.list.filter((task) => !task.selected),
