@@ -1,14 +1,14 @@
 import { appContentStore } from "../stores/appContentStore";
 
 export const UserComplete = () => {
-  const { list, clearCompleted, uncompleteTasks, toggleSelect } = appContentStore();
+  const { list, clearCompleted, uncompleteTasks, toggleSelect, appContent } = appContentStore();
   const completedTasks = list.filter((task) => task.completed);
 
   if (completedTasks.length === 0) return null;
 
   return (
     <div>
-      <h3>Completed tasks</h3>
+      <h3>{appContent.completedTasks}</h3>
       <ul>
         {completedTasks.map((task) => (
           <li key={task.id}>
