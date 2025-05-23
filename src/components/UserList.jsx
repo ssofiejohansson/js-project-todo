@@ -1,20 +1,24 @@
 import { appContentStore } from "../stores/appContentStore";
-import styled from "styled-components";
-import { List, ListItems, Input } from "./List";
-import { Button } from "./Button";
+import { appTaskStore } from "../stores/appTaskStore";
+import { List, ListItems, Input, Label } from "./List";
+import { Button, ButtonContainer } from "./Button";
+import { SubHeading, SmallHeading, Text } from "./Typography";
 
 export const UserList = () => {
-  const { appContent, list, deleteTasks, toggleSelect, clearActive, completeTasks } = appContentStore();
+  const { appContent } = appContentStore();
+  const { list, deleteTasks, toggleSelect, clearActive, completeTasks } = appTaskStore();
 
   // Only show tasks that are not completed
   const activeTasks = list.filter((task) => !task.completed);
+  const completedTasks = list.filter((task) => task.completed);
 
   // If there are no active tasks, show a message
-  if (activeTasks.length === 0) return <p>We got nothing so far. Let's be productive!</p>;
+  if (activeTasks.length === 0 && completedTasks.length === 0) return <SubHeading>{appContent.listPlaceholder}</SubHeading>;
 
   return (
     <div>
-      <h2>{appContent.subHeading}</h2>
+      <SmallHeading>{appContent.subHeading}</SmallHeading>
+      <Text>{activeTasks.length} tasks</Text>
       <List>
         {activeTasks.map((task) => (
           <ListItems key={task.id}>
@@ -23,14 +27,16 @@ export const UserList = () => {
               checked={task.selected}
               onChange={() => toggleSelect(task.id)}
             />
-            <label>{task.task}</label>
+            <Label>{task.task}</Label>
           </ListItems>
         ))}
       </List>
-      <p>{activeTasks.length} tasks</p>
-      <Button onClick={completeTasks}>Complete</Button>
-      <Button onClick={deleteTasks}>Delete</Button>
-      <Button onClick={clearActive}>Clear all</Button>
+
+      <ButtonContainer>
+        <Button onClick={completeTasks}>Complete</Button>
+        <Button onClick={deleteTasks}>Delete</Button>
+        <Button onClick={clearActive}>Clear all</Button>
+      </ButtonContainer>
     </div>
   );
 };

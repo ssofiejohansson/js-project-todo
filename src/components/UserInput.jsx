@@ -1,11 +1,13 @@
 import { appContentStore } from "../stores/appContentStore";
+import { appTaskStore } from "../stores/appTaskStore";
 import { useState } from "react";
 import { Button } from "./Button";
 import { FormContainer, TextArea } from "./InputForm";
 
 export const UserInput = () => {
   const [text, setText] = useState("")
-  const { appContent, addTask } = appContentStore() // destructuring the appContent from the store
+  const { appContent } = appContentStore()
+  const { addTask } = appTaskStore()
 
   const handleSubmit = e => {
     e.preventDefault()

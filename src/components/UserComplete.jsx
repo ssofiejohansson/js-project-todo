@@ -1,33 +1,40 @@
 import { appContentStore } from "../stores/appContentStore";
-import { List, ListItems } from "./List";
-import { Button } from "./Button";
+import { appTaskStore } from "../stores/appTaskStore";
+import { List, ListItems, Label, Input } from "./List";
+import { Button, ButtonContainer } from "./Button";
+import { SubHeading, SmallHeading, Text } from "./Typography";
+
 
 export const UserComplete = () => {
-  const { list, clearCompleted, uncompleteTasks, toggleSelect, appContent } = appContentStore();
+  const { appContent } = appContentStore();
+  const { list, clearCompleted, uncompleteTasks, toggleSelect } = appTaskStore();
+
   const completedTasks = list.filter((task) => task.completed);
 
   if (completedTasks.length === 0) return null;
 
   return (
     <div>
-      <h3>{appContent.completedTasks}</h3>
+      <SmallHeading>{appContent.completedTasks}</SmallHeading>
       <List>
         {completedTasks.map((task) => (
           <ListItems key={task.id}>
-            <input
+            <Input
               type="checkbox"
               checked={task.selected}
               onChange={() => toggleSelect(task.id)}
             />
-            <label style={{ textDecoration: "line-through", color: "#888" }}>
+            <Label>
               {task.task}
-            </label>
+            </Label>
           </ListItems>
         ))}
       </List>
-      <p>{completedTasks.length} tasks</p>
-      <Button onClick={clearCompleted}>Clear all</Button>
-      <Button onClick={uncompleteTasks}>Uncomplete</Button>
+      <Text>{completedTasks.length} tasks</Text>
+      <ButtonContainer>
+        <Button onClick={uncompleteTasks}>Uncomplete</Button>
+        <Button onClick={clearCompleted}>Clear all</Button>
+      </ButtonContainer>
     </div>
   );
 };
