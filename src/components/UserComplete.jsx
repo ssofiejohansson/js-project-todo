@@ -1,4 +1,6 @@
 import { appContentStore } from "../stores/appContentStore";
+import { List, ListItems } from "./List";
+import { Button } from "./Button";
 
 export const UserComplete = () => {
   const { list, clearCompleted, uncompleteTasks, toggleSelect, appContent } = appContentStore();
@@ -9,9 +11,9 @@ export const UserComplete = () => {
   return (
     <div>
       <h3>{appContent.completedTasks}</h3>
-      <ul>
+      <List>
         {completedTasks.map((task) => (
-          <li key={task.id}>
+          <ListItems key={task.id}>
             <input
               type="checkbox"
               checked={task.selected}
@@ -20,12 +22,12 @@ export const UserComplete = () => {
             <label style={{ textDecoration: "line-through", color: "#888" }}>
               {task.task}
             </label>
-          </li>
+          </ListItems>
         ))}
-      </ul>
+      </List>
       <p>{completedTasks.length} tasks</p>
-      <button onClick={clearCompleted}>Clear all</button>
-      <button onClick={uncompleteTasks}>Uncomplete</button>
+      <Button onClick={clearCompleted}>Clear all</Button>
+      <Button onClick={uncompleteTasks}>Uncomplete</Button>
     </div>
   );
 };

@@ -1,28 +1,7 @@
 import { appContentStore } from "../stores/appContentStore";
 import { useState } from "react";
-import styled from "styled-components";
 import { Button } from "./Button";
-
-const FormContainer = styled.form`
-
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  width: 100%;
-  max-width: 800px;
-`;
-
-const TextArea = styled.textarea`
-  font-size: 16px;
-  padding: 20px;
-  border: 4px solid #333;
-  border-radius: 40px;
-  width: 100%;
-  height: 100px;
-  resize: none;
-  `
+import { FormContainer, TextArea } from "./InputForm";
 
 export const UserInput = () => {
   const [text, setText] = useState("")
@@ -34,18 +13,30 @@ export const UserInput = () => {
     setText("")
   }
 
+  //Press enter to submit the form
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (text.length >= 2) {
+        handleSubmit(e);
+      }
+    }
+  };
+
   return (
-
     <FormContainer onSubmit={handleSubmit}>
-      <TextArea placeholder={appContent.inputPlaceholder} value={text} onChange={e => setText(e.target.value)} />
-      <Button onClick={() => {
-        if (text.length < 2) return;
-        addTask(text);
-        setText("");
-      }}
+      <TextArea
+        placeholder={appContent.inputPlaceholder}
+        value={text}
+        onChange={e => setText(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+      <Button
+        type="submit"
         disabled={text.length < 2}
-      >Let's do it!</Button>
+      >
+        Let's do it!
+      </Button>
     </FormContainer>
-
   )
 }

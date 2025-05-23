@@ -26,13 +26,14 @@ const UserInputContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   height: 100dvh;
+  min-height: 500px;
   padding: 20px;
 
   @media (min-width: 1028px) {
     height: 100vh;
     width: 50%;
     align-items: flex-start;
-    justify-content: flex-start;
+    
   }
 `
 
@@ -43,6 +44,7 @@ const ListContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 100dvh;
+  min-height: 600px;
   background-color: lightpink;
   padding: 20px;
 
@@ -50,7 +52,7 @@ const ListContainer = styled.div`
     height: 100vh;
     width: 50%;
     align-items: flex-start;
-    justify-content: flex-start;
+  
   }
 `
 const Heading = styled.h1`

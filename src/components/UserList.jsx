@@ -1,5 +1,7 @@
 import { appContentStore } from "../stores/appContentStore";
 import styled from "styled-components";
+import { List, ListItems, Input } from "./List";
+import { Button } from "./Button";
 
 export const UserList = () => {
   const { appContent, list, deleteTasks, toggleSelect, clearActive, completeTasks } = appContentStore();
@@ -7,21 +9,16 @@ export const UserList = () => {
   // Only show tasks that are not completed
   const activeTasks = list.filter((task) => !task.completed);
 
+  // If there are no active tasks, show a message
   if (activeTasks.length === 0) return <p>We got nothing so far. Let's be productive!</p>;
 
-  const ListContainer = styled.ul`
-    padding: 0;
-  `
-  const ListItems = styled.li`
-    list-style: none;
-  `
   return (
     <div>
       <h2>{appContent.subHeading}</h2>
-      <ListContainer>
+      <List>
         {activeTasks.map((task) => (
           <ListItems key={task.id}>
-            <input
+            <Input
               type="checkbox"
               checked={task.selected}
               onChange={() => toggleSelect(task.id)}
@@ -29,11 +26,11 @@ export const UserList = () => {
             <label>{task.task}</label>
           </ListItems>
         ))}
-      </ListContainer>
+      </List>
       <p>{activeTasks.length} tasks</p>
-      <button onClick={completeTasks}>Complete</button>
-      <button onClick={deleteTasks}>Delete</button>
-      <button onClick={clearActive}>Clear all</button>
+      <Button onClick={completeTasks}>Complete</Button>
+      <Button onClick={deleteTasks}>Delete</Button>
+      <Button onClick={clearActive}>Clear all</Button>
     </div>
   );
 };
