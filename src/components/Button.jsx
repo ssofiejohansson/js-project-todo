@@ -2,29 +2,33 @@ import styled from "styled-components"
 
 export const ButtonContainer = styled.div`
   display: flex;
-  gap: 20px;
+  flex-direction: row;
+  
 `
 
 export const Button = styled.button`
-  background-color: #333;
+  background-color: transparent;
   color: white;
   border: none;
-  outline: 4px solid #333;
-  padding: 10px 20px;
-  font-size: 16px;
+  font-size: 32px;
   cursor: pointer;
-  transition: all 0.3s ease;
 
   &:hover {
-    background-color: #555;
     transform: scale(1.05);
   }
-
   &:disabled {
-    background-color: transparent;
-    outline: 4px solid #333;
+    opacity: 0.5;
     cursor: not-allowed;
     transform: scale(1);
-    color: #333;
   }
+  &.large {
+    font-size: 36px;
+
+    @media (min-width: 1028px) {
+      font-size: 66px;
+    }
+  }
+  &.right-align {
+    margin-left: auto;
+    }
 `

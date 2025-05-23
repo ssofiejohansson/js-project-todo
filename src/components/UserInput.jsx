@@ -34,10 +34,11 @@ export const UserInput = () => {
         onKeyDown={handleKeyDown}
       />
       <Button
+        className="large"
         type="submit"
         disabled={text.length < 2}
       >
-        Let's do it!
+        ➕
       </Button>
     </FormContainer>
   )

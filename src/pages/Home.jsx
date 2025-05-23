@@ -31,7 +31,7 @@ const UserInputContainer = styled.div`
 
 
   @media (min-width: 1028px) {
-    width: ${({ hasTasks }) => (hasTasks ? "40%" : "60%")};
+      width: ${({ $hastasks }) => ($hastasks ? "40%" : "60%")};
     transition: width 0.3s;
     padding: 40px;
   }
@@ -44,30 +44,29 @@ const ListContainer = styled.div`
   background-color: lightpink;
   padding: 20px;
   flex: 1 1 0;  
-  min-height: 0;   
-  overflow-y: auto; 
+
 
   @media (min-width: 1028px) {
-    width: ${({ hasTasks }) => (hasTasks ? "60%" : "40%")};
-    //Change this if needed. Pushing down content with margin-top
-   // margin-top: ${({ hasTasks }) => (hasTasks ? "0px" : "200px")};
-    padding: 40px;
+     width: ${({ $hastasks }) => ($hastasks ? "60%" : "40%")};
+    padding: 60px;
     transition: width 0.3s;
+    min-height: 0;
+    overflow-y: auto;
   }
 `;
 
 export const Home = () => {
   const { appContent } = appContentStore();
   const { list } = appTaskStore(); // get the tasks
-  const hasTasks = list.length > 0;
+  const hastasks = list.length > 0;
 
   return (
     <BodyContainer>
-      <UserInputContainer hasTasks={hasTasks}>
+      <UserInputContainer $hastasks={hastasks}>
         <Heading>{appContent.heading}</Heading>
         <UserInput />
       </UserInputContainer>
-      <ListContainer hasTasks={hasTasks}>
+      <ListContainer $hastasks={hastasks}>
         <UserList />
         <UserComplete />
       </ListContainer>

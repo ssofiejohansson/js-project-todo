@@ -1,40 +1,36 @@
 import { appContentStore } from "../stores/appContentStore";
 import { appTaskStore } from "../stores/appTaskStore";
-import { List, ListItems, Label, Input } from "./List";
+import { List, ListItems, Label } from "./List";
 import { Button, ButtonContainer } from "./Button";
 import { SubHeading, SmallHeading, Text } from "./Typography";
 
 
 export const UserComplete = () => {
   const { appContent } = appContentStore();
-  const { list, clearCompleted, uncompleteTasks, toggleSelect } = appTaskStore();
+  const { list, uncompleteTaskById, deleteTaskById } = appTaskStore();
 
   const completedTasks = list.filter((task) => task.completed);
 
   if (completedTasks.length === 0) return null;
 
   return (
-    <div>
-      <SmallHeading>{appContent.completedTasks}</SmallHeading>
+    <>
+      <SmallHeading>{appContent.completedTasks}</SmallHeading>    <Text>{completedTasks.length} tasks</Text>
       <List>
         {completedTasks.map((task) => (
           <ListItems key={task.id}>
-            <Input
-              type="checkbox"
-              checked={task.selected}
-              onChange={() => toggleSelect(task.id)}
-            />
-            <Label>
+
+            <Label className="completed">
               {task.task}
             </Label>
+            <ButtonContainer>
+              <Button onClick={() => uncompleteTaskById(task.id)}>🔙</Button>
+              <Button onClick={() => deleteTaskById(task.id)}>✖️</Button>
+            </ButtonContainer>
           </ListItems>
         ))}
       </List>
-      <Text>{completedTasks.length} tasks</Text>
-      <ButtonContainer>
-        <Button onClick={uncompleteTasks}>Uncomplete</Button>
-        <Button onClick={clearCompleted}>Clear all</Button>
-      </ButtonContainer>
-    </div>
+
+    </>
   );
 };

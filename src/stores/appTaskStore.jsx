@@ -37,4 +37,19 @@ export const appTaskStore = create((set) => ({
   clearCompleted: () => set((state) => ({
     list: state.list.filter((task) => !task.completed),
   })),
+  clearAll: () => set({ list: [] }),
+  completeTaskById: (id) => set((state) => ({
+    list: state.list.map((task) =>
+      task.id === id ? { ...task, completed: true } : task
+    ),
+  })),
+  uncompleteTaskById: (id) => set((state) => ({
+    list: state.list.map((task) =>
+      task.id === id ? { ...task, completed: false } : task
+    ),
+  })),
+  deleteTaskById: (id) => set((state) => ({
+    list: state.list.filter((task) => task.id !== id),
+  })),
+
 }));

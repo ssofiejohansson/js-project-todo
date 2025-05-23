@@ -20,18 +20,18 @@ export const SubHeading = styled.h2`
   text-transform: uppercase;
   letter-spacing: -2px;
   padding: 8px;
-    line-height: 1.2;
+  line-height: 1.2;
 `
 
 export const SmallHeading = styled.h3`
-  font-size: clamp(16px, 2vw, 32px);
-  font-weight: 400;
+  font-size: clamp(24px, 2vw, 32px);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: -1px;
-  padding: 6px;
+  letter-spacing: -2px;
+    line-height: 1.2;
 `
 export const Text = styled.p`
-  font-size: clamp(12px, 1.5vw, 24px);
+  font-size: clamp(16px, 1.5vw, 24px);
   font-weight: 400;
   text-transform: none;
   letter-spacing: -0.5px;

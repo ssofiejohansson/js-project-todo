@@ -1,42 +1,28 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
-    padding: 0;
-  
+    padding: 0; 
+    width: 100%;
+
   `
 export const ListItems = styled.li`
-
-    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     list-style: none;
     border-bottom: 4px solid #333;
   `
 
-export const Label = styled.label`
-  font-size: 18px;
-  padding: 10px;
-  
-`
+export const Label = styled.p`
+    font-size: 18px;
+    padding: 2px;
+    letter-spacing: 1px;
 
-export const Input = styled.input` 
-  margin: 10px;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  background-color: #333; 
-  border: none;
-  outline: 4px solid #333;
-
-  &:checked {
-
-  }
-  &:checked + ${Label} {
+  &.completed {
     text-decoration: line-through;
   }
-  &:checked + ${Label}:hover {
-    text-decoration: none;
+@media (min-width: 1028px) {
+    font-size: 22px;
   }
-  &:hover {
-    background-color: #555;
-    transform: scale(1.05);
-  }
-  `
+`
