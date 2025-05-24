@@ -15,7 +15,7 @@ export const TextArea = styled.textarea`
     padding: 20px;
     outline: 4px solid #333;
     border: none;
-    border-radius: none;
+    border-radius: 0;
     background-color: lightblue;
     width: 100%;
     height: 100px;
@@ -26,15 +26,16 @@ export const TextArea = styled.textarea`
   }
   &::-webkit-scrollbar-thumb {
     background: lightpink;
-    border-radius: none;
+    border-radius: 0;
   }
   &::-webkit-scrollbar-track {
     background: #333;
-    border-radius: none;
+    border-radius: 0;
   }
   &:focus {
     outline: 6px solid #333;  
   }
   &::placeholder {
+    color: #333;
   }
   `

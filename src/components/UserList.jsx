@@ -26,9 +26,9 @@ export const UserList = () => {
       <Button className="large right-align" onClick={clearAll}
         title="Clear & restart"
         aria-label="Clear all tasks"
-        role="button">✖️</Button>
+        role="button">✖︎</Button>
 
-      <SmallHeading>{appContent.subHeading} {today}</SmallHeading>
+      <SmallHeading>{appContent.subHeading} {today}:</SmallHeading>
 
       <List>
         {activeTasks.map((task) => (

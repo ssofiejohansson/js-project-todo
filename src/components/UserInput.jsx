@@ -3,6 +3,7 @@ import { appTaskStore } from "../stores/appTaskStore";
 import { useState } from "react";
 import { Button } from "./Button";
 import { FormContainer, TextArea } from "./InputForm";
+import { Text } from "./Typography"
 
 export const UserInput = () => {
   const [text, setText] = useState("")
@@ -26,23 +27,29 @@ export const UserInput = () => {
   };
 
   return (
-    <FormContainer onSubmit={handleSubmit}>
-      <TextArea
-        placeholder={appContent.inputPlaceholder}
-        value={text}
-        onChange={e => setText(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-      <Button
-        className="large"
-        type="submit"
-        title="Let's do it!"
-        aria-label="Add new task"
-        role="button"
-        disabled={text.length < 2}
-      >
-        ➕
-      </Button>
-    </FormContainer>
+    <>
+      <FormContainer onSubmit={handleSubmit}>
+        <TextArea
+          placeholder={appContent.inputPlaceholder}
+          value={text}
+          onChange={e => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <Button
+          className="large"
+          type="submit"
+          title="Let's do it!"
+          aria-label="Add new task"
+          role="button"
+          disabled={text.length < 2}
+        >
+          ✚
+        </Button>
+
+      </FormContainer>
+      {/* {text.length >= 2 && (
+        <Text className={`animation${text.length >= 2 ? " visible" : ""}`}>↑</Text>
+      )} */}
+    </>
   )
 }
