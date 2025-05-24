@@ -36,6 +36,9 @@ export const UserInput = () => {
       <Button
         className="large"
         type="submit"
+        title="Let's do it!"
+        aria-label="Add new task"
+        role="button"
         disabled={text.length < 2}
       >
         ➕

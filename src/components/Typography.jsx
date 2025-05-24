@@ -9,6 +9,11 @@ export const Heading = styled.h1`
   margin: 0;
   line-height: 1;
   
+  .highlight{
+  font-style: italic;
+  letter-spacing: 2px;
+  }
+
   @media (min-width: 1500px) {
   font-size: clamp(66px, 8vw, 116px);
   }
@@ -36,4 +41,8 @@ export const Text = styled.p`
   text-transform: none;
   letter-spacing: -0.5px;
   padding: 4px;
+
+   &.right-align {
+    text-align: right;
+    }
 `
