@@ -38,5 +38,6 @@ export const TextArea = styled.textarea`
   &::placeholder {
     color: #333;
     font-size: 15px;
+   
   }
   `
