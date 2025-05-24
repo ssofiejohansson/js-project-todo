@@ -22,7 +22,8 @@ export const Button = styled.button`
     transform: scale(1);
   }
   &.large {
-    font-size: 36px;
+    font-size: 46px;
+    padding: 0;
 
     @media (min-width: 1028px) {
       font-size: 66px;

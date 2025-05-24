@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FormContainer = styled.form`
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
