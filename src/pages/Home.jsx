@@ -25,12 +25,11 @@ const UserInputContainer = styled.div`
     justify-content: flex-start;
     margin: 0 auto;
     width: 100%;
-    padding: 20px;
+    padding: 25px;
     gap: 20px;
 
-
   @media (min-width: 1028px) {
-      width: ${({ $hastasks }) => ($hastasks ? "40%" : "60%")};
+    width: ${({ $hastasks }) => ($hastasks ? "40%" : "60%")};
     transition: width 0.3s;
     padding: 40px;
   }
@@ -41,7 +40,7 @@ const ListContainer = styled.div`
     align-items: flex-start;
     width: 100%;
     background-color: lightpink;
-    padding: 20px;
+    padding: 25px;
     flex: 1 1 0; 
 
   &::-webkit-scrollbar {

@@ -16,7 +16,7 @@ export const ListItems = styled.li`
   `
 
 export const Label = styled.p`
-    font-size: 18px;
+    font-size: 16px;
     padding: 2px;
     letter-spacing: 1px;
     word-break: break-word;

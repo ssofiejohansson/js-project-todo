@@ -10,7 +10,7 @@ export const Button = styled.button`
   color: #333;
   padding: 10px;
   border: none;
-  font-size: 32px;
+  font-size: 24px;
   cursor: pointer;
 
   &:hover {
@@ -22,7 +22,7 @@ export const Button = styled.button`
     transform: scale(1);
   }
   &.large {
-    font-size: 46px;
+    font-size: 42px;
     padding: 0;
 
     @media (min-width: 1028px) {

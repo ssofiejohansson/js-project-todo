@@ -5,7 +5,7 @@ export const FormContainer = styled.form`
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     width: 100%;
     max-width: 800px;
 `;
@@ -37,5 +37,6 @@ export const TextArea = styled.textarea`
   }
   &::placeholder {
     color: #333;
+    font-size: 15px;
   }
   `
