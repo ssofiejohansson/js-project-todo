@@ -43,8 +43,21 @@ const ListContainer = styled.div`
   width: 100%;
   background-color: lightpink;
   padding: 20px;
-  flex: 1 1 0;  
+  flex: 1 1 0; 
 
+  /* Custom scrollbar styles */
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: none;
+    
+  }
+  &::-webkit-scrollbar-track {
+    background: lightblue;
+    border-radius: none;
+  }
 
   @media (min-width: 1028px) {
      width: ${({ $hastasks }) => ($hastasks ? "60%" : "40%")};

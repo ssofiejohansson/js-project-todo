@@ -12,12 +12,14 @@ export const ListItems = styled.li`
     justify-content: space-between;
     list-style: none;
     border-bottom: 4px solid #333;
+ 
   `
 
 export const Label = styled.p`
     font-size: 18px;
     padding: 2px;
     letter-spacing: 1px;
+    word-break: break-word;
 
   &.completed {
     text-decoration: line-through;

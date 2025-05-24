@@ -21,6 +21,21 @@ export const TextArea = styled.textarea`
   height: 100px;
   resize: none;
 
+
+  /* Custom scrollbar styles */
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: lightpink;
+    border-radius: none;
+    
+  }
+  &::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: none;
+  }
+
   &:focus {
     outline: 6px solid #333;
   
