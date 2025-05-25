@@ -1,55 +1,54 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
-export const appTaskStore = create((set) => ({
-  list: [],
-
-  addTask: (task) => set((state) => ({
-    list: [
-      ...state.list,
-      { id: state.list.length + 1, task, completed: false, selected: false }
-    ],
-  })),
-  toggleSelect: (id) => set((state) => ({
-    list: state.list.map((task) =>
-      task.id === id ? { ...task, selected: !task.selected } : task
-    ),
-  })),
-  completeTasks: () => set((state) => ({
-    list: state.list.map((task) =>
-      task.selected ? { ...task, completed: true, selected: false } : task
-    ),
-  })),
-  //uncomplete a task
-  uncompleteTasks: () => set((state) => ({
-    list: state.list.map((task) =>
-      task.selected ? { ...task, completed: false, selected: false } : task
-    ),
-  })),
-  // Delete all selected tasks
-  deleteTasks: () => set((state) => ({
-    list: state.list.filter((task) => !task.selected),
-  })),
-  // Clear all active tasks
-  clearActive: () => set((state) => ({
-    list: state.list.filter((task) => task.completed),
-  })),
-  // Clear all completed tasks
-  clearCompleted: () => set((state) => ({
-    list: state.list.filter((task) => !task.completed),
-  })),
-  clearAll: () => set({ list: [] }),
-  completeTaskById: (id) => set((state) => ({
-    list: state.list.map((task) =>
-      task.id === id ? { ...task, completed: true } : task
-    ),
-  })),
-  uncompleteTaskById: (id) => set((state) => ({
-    list: state.list.map((task) =>
-      task.id === id ? { ...task, completed: false } : task
-    ),
-  })),
-  deleteTaskById: (id) => set((state) => ({
-    list: state.list.filter((task) => task.id !== id),
-  })),
-
-}));
+export const appTaskStore = create(
+  persist(
+    (set) => ({
+      list: [],
+      addTask: (task) => set((state) => ({
+        list: [
+          ...state.list,
+          { id: state.list.length + 1, task, completed: false }
+        ],
+      })),
+      completeTaskById: (id) => set((state) => ({
+        list: state.list.map((task) =>
+          task.id === id ? { ...task, completed: true } : task
+        ),
+      })),
+      uncompleteTaskById: (id) => set((state) => ({
+        list: state.list.map((task) =>
+          task.id === id ? { ...task, completed: false } : task
+        ),
+      })),
+      deleteTaskById: (id) => set((state) => ({
+        list: state.list.filter((task) => task.id !== id),
+      })),
+      clearAll: () => set({ list: [] }),
+      clearCompleted: () => set((state) => ({
+        list: state.list.filter((task) => !task.completed),
+      })),
+      moveTaskUp: (id) => set((state) => {
+        const idx = state.list.findIndex(task => task.id === id);
+        if (idx > 0) {
+          const newList = [...state.list];
+          [newList[idx - 1], newList[idx]] = [newList[idx], newList[idx - 1]];
+          return { list: newList };
+        }
+        return {};
+      }),
+      moveTaskDown: (id) => set((state) => {
+        const idx = state.list.findIndex(task => task.id === id);
+        if (idx < state.list.length - 1 && idx !== -1) {
+          const newList = [...state.list];
+          [newList[idx], newList[idx + 1]] = [newList[idx + 1], newList[idx]];
+          return { list: newList };
+        }
+        return {};
+      }),
+    }),
+    {
+      name: "to-do tasks",
+    }
+  )
+);

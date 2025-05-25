@@ -24,12 +24,12 @@ export const UserComplete = () => {
               {task.task}
             </Label>
             <ButtonContainer>
-              <Button title="Let's redo" aria-label="Uncomplete task" role="button" onClick={() => uncompleteTaskById(task.id)}>↖</Button>
+              <Button title="Let's redo" aria-label="Uncomplete task" role="button" onClick={() => uncompleteTaskById(task.id)}>➕</Button>
               <Button title="Delete forever" aria-label="Delete task" role="button" onClick={() => deleteTaskById(task.id)}>✖️</Button>
             </ButtonContainer>
           </ListItems>
         ))}
-        <Text className="right-align">{completedTasks.length} ✔︎</Text>
+        <Text className="right-align">{completedTasks.length} ✔️</Text>
       </List>
 
     </>

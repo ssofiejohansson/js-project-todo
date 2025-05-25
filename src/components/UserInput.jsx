@@ -43,7 +43,7 @@ export const UserInput = () => {
           role="button"
           disabled={text.length < 2}
         >
-          ✚
+          ➕
         </Button>
 
       </FormContainer>
