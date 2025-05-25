@@ -28,7 +28,13 @@ export const UserList = () => {
         aria-label="Clear all tasks"
         role="button">✖️</Button>
 
-      <SmallHeading>{appContent.subHeading} {today}:</SmallHeading>
+      <SubHeading>{appContent.subHeading} {today}.</SubHeading>
+
+      {activeTasks.length === 0 && (
+        <Text>
+          Currently just an empty list. Let's get productive and add some tasks!
+        </Text>
+      )}
 
       <List>
         {activeTasks.map((task) => (
@@ -51,9 +57,9 @@ export const UserList = () => {
             </ButtonContainer>
           </ListItems>
         ))}
-        <Text className="right-align">{activeTasks.length} ➕</Text>
-      </List>
 
+      </List>
+      <Text className="right-align">{activeTasks.length} ➕</Text>
     </>
   );
 };

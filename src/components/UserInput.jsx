@@ -46,9 +46,13 @@ export const UserInput = () => {
           ➕
         </Button>
 
+
+
       </FormContainer>
+
+      {/* will eventually add an animation on the page */}
       {/* {text.length >= 2 && (
-        <Text className={`animation${text.length >= 2 ? " visible" : ""}`}>↑</Text>
+        <Text className={`right-align animation${text.length >= 2 ? " visible" : ""}`}>↑</Text>
       )} */}
     </>
   )

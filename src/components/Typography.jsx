@@ -20,7 +20,7 @@ export const Heading = styled.h1`
 `
 
 export const SubHeading = styled.h2`
-  font-size: clamp(32px, 4vw, 44px);
+  font-size: clamp(32px, 4vw, 38px);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: -2px;
@@ -38,15 +38,15 @@ export const SmallHeading = styled.h3`
 
 const arrowAnimation = keyframes`
   0% {
-    transform: translateY(0) rotate(-45deg) scale(0.8);
+    transform: scale(0.8) rotate(10deg);
     opacity: 0;
   }
   50% {
-    transform: translateY(-10px) rotate(-45deg) scale(1.1);
+    transform: scale(1.1) rotate(-10deg);
     opacity: 1;
   }
   100% {
-    transform: translateY(-20px) rotate(-45deg) scale(1);
+    transform: scale(1) rotate(-10deg);
     opacity: 1;
   }
 `;
@@ -60,22 +60,22 @@ export const Text = styled.p`
   
   &.right-align {
     text-align: right;
+    width: 100%;
   }
 
   &.animation {
-    font-size: 80px;
-    text-align: right;
-    width: 100%;
-    margin: 0;
+    font-size: 60px;
     padding: 0;
+    margin: 0;
+    margin-top: 22px; 
     opacity: 0;
-    line-height: 0.5;
-    transform: translateY(0) rotate(-45deg) scale(0.8);
     transition: opacity 0.3s;
+    transform: rotate(-20deg); 
+    z-index: 10;
   }
   &.animation.visible {
     opacity: 1;
-    animation: ${arrowAnimation} 0.7s cubic-bezier(0.4, 2, 0.6, 1) forwards;
+     animation: ${arrowAnimation} 0.7s forwards;
  
   }
 `

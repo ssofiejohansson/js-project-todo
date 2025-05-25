@@ -29,9 +29,9 @@ export const UserComplete = () => {
             </ButtonContainer>
           </ListItems>
         ))}
-        <Text className="right-align">{completedTasks.length} ✔️</Text>
-      </List>
 
+      </List>
+      <Text className="right-align">{completedTasks.length} ✔️</Text>
     </>
   );
 };
