@@ -2,7 +2,7 @@ import { appContentStore } from "../stores/appContentStore";
 import { appTaskStore } from "../stores/appTaskStore";
 import { List, ListItems, Label } from "./List";
 import { Button, ButtonContainer } from "./Button";
-import { SubHeading, SmallHeading, Text } from "./Typography";
+import { SubHeading, Text } from "./Typography";
 
 export const UserList = () => {
   const { appContent } = appContentStore();
@@ -37,6 +37,10 @@ export const UserList = () => {
       )}
 
       <List>
+        <ListItems>
+          <span> Prioritize / Task</span>
+          <span> Complete / Delete</span>
+        </ListItems>
         {activeTasks.map((task) => (
           <ListItems key={task.id}>
             <Label>
@@ -49,6 +53,7 @@ export const UserList = () => {
               >↓</Button>
               {task.task}
             </Label>
+
             <ButtonContainer>
               <Button title="Good job!" aria-label="Complete task" role="button" onClick={() => completeTaskById(task.id)}>✔️</Button>
               <Button title="Delete forever"

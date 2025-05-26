@@ -2,7 +2,7 @@ import { appContentStore } from "../stores/appContentStore";
 import { appTaskStore } from "../stores/appTaskStore";
 import { List, ListItems, Label } from "./List";
 import { Button, ButtonContainer } from "./Button";
-import { SubHeading, SmallHeading, Text } from "./Typography";
+import { SmallHeading, Text } from "./Typography";
 
 
 export const UserComplete = () => {

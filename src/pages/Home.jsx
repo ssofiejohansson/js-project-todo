@@ -65,7 +65,6 @@ const ListContainer = styled.div`
 `;
 
 export const Home = () => {
-  // const { appContent } = appContentStore();
   const { list } = appTaskStore(); // get the tasks
   const hastasks = list.length > 0;
 

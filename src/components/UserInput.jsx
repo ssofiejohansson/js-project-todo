@@ -3,7 +3,6 @@ import { appTaskStore } from "../stores/appTaskStore";
 import { useState } from "react";
 import { Button } from "./Button";
 import { FormContainer, TextArea } from "./InputForm";
-import { Text } from "./Typography"
 
 export const UserInput = () => {
   const [text, setText] = useState("")
@@ -45,8 +44,6 @@ export const UserInput = () => {
         >
           ➕
         </Button>
-
-
 
       </FormContainer>
 
