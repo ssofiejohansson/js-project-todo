@@ -1,3 +1,3 @@
-# Todo App
-https://stillnotdone.netlify.app/
+Still Not Done is a to-do app built with React that helps users manage their tasks with ease. It uses Zustand for state management and styled-components for styling, offering a smooth and responsive user experience. Users can add new tasks, mark them as complete, delete them and reorder them in the list. Completed tasks appear in a separate section to keep things organized. The app also uses localStorage so the task list is saved between sessions and remains available even after the browser is closed.
 
+https://stillnotdone.netlify.app/
